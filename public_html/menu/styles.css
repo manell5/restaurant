@@ -1,0 +1,264 @@
+/* Base Styles */
+@font-face {
+  font-family: "tamelhant02";
+  src: url("../fonts/NOVARIA.ttf") format("truetype");
+}
+
+/* Applique tamelhant02 uniquement aux grands titres */
+h1, h2, .header h1, .wine-category h3 {
+  font-family: "tamelhant02", serif;
+}
+
+/* Le reste du texte utilise la police par défaut ou une police élégante */
+body, .menu-container, .header, .footer, h3, h4, h5, h6, p, button, .item-name, .item-description, .item-price {
+  font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+body {
+    background-image: url("/images/Vintage_frame.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: #5a3921;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+/* Loading Screen */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    color: bisque;
+    font-size: 1.2em;
+}
+
+.loader {
+    border: 5px solid #5a3921;
+    border-top: 5px solid bisque;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Menu Container */
+.menu-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: white;
+    box-shadow: 0 0 30px rgba(90, 57, 33, 0.2);
+    border: 1px solid #5a3921;
+    transition: opacity 1s ease-in-out;
+    position: relative;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    border-bottom: 2px solid #5a3921;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    opacity: 1;
+    transform: none;
+}
+
+h1 {
+    font-size: 3.5em;
+    color: black;
+    margin: 0;
+    font-weight: normal;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Navigation Tabs */
+.nav-tabs {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #5a3921;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.tab-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #5a3921;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.tab-btn:hover::after, .tab-btn.active::after {
+    width: 100%;
+}
+
+.tab-btn.active {
+    color: black;
+    font-weight: bold;
+}
+
+/* Decoration */
+.decoration {
+    height: 10px;
+    background: linear-gradient(to right, antiquewhite, #5a3921, antiquewhite);
+    margin: 20px 0;
+    opacity: 1;
+    transform: none;
+    transform-origin: left;
+}
+
+/* Menu Sections */
+.menu-section {
+    margin-bottom: 40px;
+    display: none;
+}
+
+.menu-section.show {
+    display: block;
+}
+
+h2 {
+    font-size: 1.8em;
+    color: #5a3921;
+    border-bottom: 1px solid bisque;
+    padding-bottom: 5px;
+    margin-top: 30px;
+    opacity: 1;
+    transform: none;
+}
+
+/* Menu Items */
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    margin: 25px 0;
+    padding: 15px;
+    background-color: rgba(255, 228, 196, 0.1);
+    border-left: 3px solid transparent;
+    transition: all 0.3s ease;
+    opacity: 1;
+    transform: none;
+}
+
+.menu-item:hover {
+    border-left: 3px solid #5a3921;
+    background-color: rgba(255, 228, 196, 0.3);
+}
+
+.item-name {
+    font-weight: bold;
+    color: black;
+    font-size: 1.1em;
+}
+
+.item-price {
+    color: #5a3921;
+    font-style: italic;
+    font-weight: bold;
+    min-width: 60px;
+    text-align: right;
+}
+
+.item-description {
+    font-size: 0.9em;
+    color: #5a3921;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+/* Wine Category */
+.wine-category {
+    margin-bottom: 30px;
+}
+
+.wine-category h3 {
+    color: black;
+    font-size: 1.3em;
+    margin-bottom: 15px;
+    border-bottom: 1px dashed #5a3921;
+    padding-bottom: 5px;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.9em;
+    color: #5a3921;
+    border-top: 1px solid bisque;
+    padding-top: 20px;
+    opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .menu-container {
+        margin: 20px 10px;
+        padding: 15px;
+    }
+    
+    h1 {
+        font-size: 2.5em;
+    }
+    
+    .menu-item {
+        flex-direction: column;
+    }
+    
+    .item-price {
+        text-align: left;
+        margin-top: 5px;
+    }
+    
+    .nav-tabs {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .tab-btn {
+        margin: 5px 0;
+    }
+}
+
+@media (max-width: 700px) {
+  body {
+    background-image: none !important;
+    background-color: bisque !important;
+  }
+}
